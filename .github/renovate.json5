@@ -17,5 +17,8 @@
       "matchDepTypes": ["container"],
       "matchFileNames": [".github/workflows/**.yaml", ".github/workflows/**.yml"],
     },
-  ]
+  ],
+  "pre-commit": {
+    "enabled": true
+  }
 }
