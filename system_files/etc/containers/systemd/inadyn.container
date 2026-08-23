@@ -1,0 +1,13 @@
+# inadyn-container.container
+[Container]
+Image=docker.io/troglobit/inadyn:latest
+Volume=/etc/inadyn.conf:/etc/inadyn.conf:Z
+Volume=/var/storage/data/inadyn:/var/cache/inadyn:Z
+Exec=-1 --cache-dir=/var/cache/inadyn
+
+[Service]
+Type=oneshot
+RemainAfterExit=false
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,18 @@
+set allow-duplicate-recipes := true
+set ignore-comments := true
+
+_default:
+    pjust --choose
+run_all task *args:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    for dir in /opt/*; do
+        [ -d "$dir" ] || continue
+        [ -f "$dir/.noall" ] && continue
+        [ -f "$dir/.justfile" ] || continue
+        echo "Running {{ task }} on $dir"
+        cd $dir
+        just --allow-missing {{ task }} {{ args }}
+    done
+reload:
+    sudo systemctl daemon-reload

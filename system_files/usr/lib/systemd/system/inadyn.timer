@@ -1,0 +1,9 @@
+# inadyn-container.timer
+[Timer]
+OnBootSec=1min
+OnActiveSec=10min
+
+Persistent=true
+
+[Install]
+WantedBy=timers.target
