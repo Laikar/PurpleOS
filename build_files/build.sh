@@ -1,6 +1,6 @@
 #!/bin/bash
 
 set -ouex pipefail
-dnf5 install -y just fzf borgmatic fish
+dnf5 install -y just fzf fish
 dnf clean all
 systemctl enable podman.socket
